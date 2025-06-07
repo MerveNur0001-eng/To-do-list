@@ -53,14 +53,14 @@ class TodoApp:
 
         self.theme_button_canvas = tk.Canvas(self.root, width=50, height=50, highlightthickness=0, bg="#937DC2")
         self.theme_button_canvas.place(x=10, y=10)
-        self.round_image = tk.PhotoImage(file="Image/palette.png").subsample(9, 9)
+        self.round_image = tk.PhotoImage(file="Image-sound/palette.png").subsample(9, 9)
         self.theme_button_canvas.create_image(25, 25, image=self.round_image)
         self.theme_button_canvas.bind("<Button-1>", self.open_theme_menu)
 
         self.completed_tasks_button = tk.Button(self.root, text=f"Deleted Tasks ({len(self.completed_tasks)})", command=self.show_completed_tasks)
         self.completed_tasks_button.place(x=490, y=10)
 
-        self.add_image_button("Image/ddelete.png", self.delete_selected, 275, 690)
+        self.add_image_button("Image-sound/ddelete.png", self.delete_selected, 275, 690)
 
         self.category_label = ttk.Label(self.root, text="Category:", font=("Arial", 12, "bold"))
         self.category_label.pack(pady=5)
@@ -394,7 +394,7 @@ class TodoApp:
         treeview.delete(*selected_items)
         self.completed_tasks_button.config(text=f"Deleted Tasks ({len(self.completed_tasks)})")
     def play_checkmark_sound(self):
-        pygame.mixer.music.load("Image/checkmark.mp3")
+        pygame.mixer.music.load("Image-sound/checkmark.mp3")
         pygame.mixer.music.play()
 
     def schedule_reminder(self):
@@ -419,7 +419,7 @@ class TodoApp:
             pygame.mixer.init()
 
             # Get the absolute path to the reminder sound file
-            reminder_sound_path = os.path.abspath("Image/reminder_sound.mp3")
+            reminder_sound_path = os.path.abspath("Image-sound/reminder_sound.mp3")
 
             # Check if the file exists
             if not os.path.exists(reminder_sound_path):
