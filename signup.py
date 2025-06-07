@@ -73,10 +73,9 @@ def login_page():
 
 def resize_image(image_path, width, height):
     image = Image.open(image_path)
-    # Alfa kanalı olmayan bir sürüm oluşturun
     image = image.convert('RGB')
     resized_image = image.resize((width, height), Image.LANCZOS)
-    resized_image.save('Imagee/resized_bg.jpg', 'JPEG', quality=85)  # Resmi JPEG olarak kaydedin
+    resized_image.save('Imagee/resized_bg.jpg', 'JPEG', quality=85)
     return ImageTk.PhotoImage(resized_image)
 
 
@@ -151,18 +150,15 @@ def forget_pass():
 
     window.mainloop()
 
-# Setup the signup window
 signup_window = Tk()
 signup_window.geometry('400x650')
 signup_window.title('Signup Page')
 signup_window.resizable(False, False)
 
-# Load and resize the background image
 background = resize_image('Imagee/bg7.png', 400, 650)
 
 
 
-# Create and place the background label
 bgLabel = Label(signup_window, image=background)
 bgLabel.grid()
 
@@ -171,22 +167,18 @@ ac_image = resize_image("Imagee/accc.png", width=190, height=130)
 ac_label = Label(signup_window, image=ac_image, bg='#F6F5F2')
 ac_label.place(x=100, y=480)
 
-# Create and place the frame
 frame = Frame(signup_window, bg='#F6F5F2')
 frame.place(x=50, y=50)
 
-# Create and place the heading label
 heading = Label(frame, text='CREATE AN ACCOUNT', font=('Gabriola', 20, 'bold'), bg='#F6F5F2', fg='#401F71')
 heading.grid(row=0, column=0, padx=10, pady=10)
 
-# Create and place the email label and entry
 emailLabel = Label(frame, text='Email:', font=('Microsoft Yahei UI Light', 12, 'bold'), bg='#F6F5F2', fg='#912BBC')
 emailLabel.grid(row=1, column=0, sticky='w', padx=25)
 
 emailEntry = Entry(frame, width=30, font=('Microsoft Yahei UI Light', 10, 'bold'), fg='white', bg='#77B0AA')
 emailEntry.grid(row=2, column=0, sticky='w', padx=25, pady=(10, 0))
 
-# Create and place the username label and entry
 usernameLabel = Label(frame, text='Username:', font=('Microsoft Yahei UI Light', 12, 'bold'), bg='#F6F5F2', fg='#912BBC')
 usernameLabel.grid(row=3, column=0, sticky='w', padx=25, pady=(10, 0))
 

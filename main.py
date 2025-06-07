@@ -159,7 +159,6 @@ class TodoApp:
                              self.theme_button_canvas.winfo_rooty() + self.theme_button_canvas.winfo_height())
 
     def add_task(self):
-        """Yeni görev ekle"""
         task = self.task_entry.get().strip()
         deadline_date = self.deadline_calendar.get_date()
         hour = self.hour_combobox.get()
@@ -451,7 +450,7 @@ class TodoApp:
             deadline_time = datetime.strptime(deadline_str, "%Y-%m-%d %H:%M")
             current_time = datetime.now()
             time_difference = (deadline_time - current_time).total_seconds()
-            return max(time_difference, 0)  # Negatif süreleri sıfır yap
+            return max(time_difference, 0)
         except ValueError:
             return 0
 

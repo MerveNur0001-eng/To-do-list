@@ -45,13 +45,13 @@ def forget_pass():
     bgLabel = Label(bgFrame, image=bgPic)
     bgLabel.place(x=0, y=0)
 
-    pass_image = Image.open("Imagee/pass.png")  # "pass" resminin yolunu belirtin
+    pass_image = Image.open("Imagee/pass.png")
     pass_width = 100  # Resmin genişliği
     pass_height = 100  # Resmin yüksekliği
-    pass_image = pass_image.resize((pass_width, pass_height), Image.LANCZOS)  # Resmi boyutlandırın
-    pass_photo = ImageTk.PhotoImage(pass_image)  # Resmi ImageTk formatına dönüştürün
-    pass_label = Label(window, image=pass_photo, bg='#F1F1F1')  # Label oluşturun
-    pass_label.place(x=170, y=450)  # Belirli bir X ve Y konumu belirtin
+    pass_image = pass_image.resize((pass_width, pass_height), Image.LANCZOS)
+    pass_photo = ImageTk.PhotoImage(pass_image)
+    pass_label = Label(window, image=pass_photo, bg='#F1F1F1')
+    pass_label.place(x=170, y=450)
 
     heading_label = Label(window, text='RESET PASSWORD', font=('Gabriola', '25','bold'), bg='#EEEEEE', fg='#004225')
     heading_label.place(x=28, y=60)
@@ -132,12 +132,10 @@ login_window.geometry('400x650')
 login_window.resizable(0, 0)
 login_window.title('Login Page')
 
-# Resmi açın ve yeniden boyutlandırın
 image = Image.open('Imagee/bg.png')
 image = image.resize((400, 650), Image.Resampling.LANCZOS)
 bgImage = ImageTk.PhotoImage(image)
 
-# Resmi bir Label içine koyun
 bgLabel = Label(login_window, image=bgImage)
 bgLabel.place(x=0, y=0)
 
@@ -175,16 +173,15 @@ signupLabel.place(x=50, y=400)
 newaccountButton = Button(login_window, text='Create new one', font=('Open Sans', 10, 'bold underline'), fg='blue', bg='white', activeforeground='blue', activebackground='white', cursor='hand2', bd=0, width=23, command=signup_page)
 newaccountButton.place(x=190, y=400)
 
-# welcome1 resmini yükleyin
-welcome1_image = Image.open("Imagee/welcome.png")  # Resminizin yolunu belirtin
+
+welcome1_image = Image.open("Imagee/welcome.png")
 new_width = 275
 new_height = 200
-welcome1_image = welcome1_image.resize((new_width, new_height), Image.LANCZOS)  # Yeni boyutları belirtin
+welcome1_image = welcome1_image.resize((new_width, new_height), Image.LANCZOS)
 welcome1_photo = ImageTk.PhotoImage(welcome1_image)
 
-# welcome1 resmini içeren bir Label oluşturun
 welcome1_label = Label(login_window, image=welcome1_photo, bg='white')
-welcome1_label.place(x=70, y=420)  # Belirli bir X ve Y konumu belirtin
+welcome1_label.place(x=70, y=420)
 
 
 login_window.mainloop()
